@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { increaseCounter, workerAction } from './actions';
 import PropTypes from 'prop-types';
+// import Worker from './new.worker.js';
 
 class Counter extends Component {
   handleClick = () => {
-    const myWorker = new Worker('./newWorker.js', { type: 'module' });
+    const myWorker = new Worker();
     myWorker.onmessage = function(e) {
       console.log('Message received from worker');
     };
@@ -14,7 +15,7 @@ class Counter extends Component {
 
   render() {
     return (
-      <div onClick={this.handleClick}>
+      <div onClick={() => this.props.workerAction(100)}>
         Counter: { this.props.counter.counter }
       </div>
     );

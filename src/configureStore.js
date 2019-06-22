@@ -3,10 +3,11 @@ import { createLogger } from 'redux-logger'
 import createSagaMiddleware from 'redux-saga';
 import createWorkerMiddleware from './createWorkerMiddleware';
 import counter from './reducer';
+import Worker from './redux.worker.js';
 
 const reducers = combineReducers({ counter });
 
-const worker = new Worker('./worker.js', { type: 'module' });
+const worker = new Worker();
 console.log(worker);
 
 const workerMiddleware = createWorkerMiddleware(worker);
