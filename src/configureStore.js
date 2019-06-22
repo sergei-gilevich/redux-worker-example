@@ -6,7 +6,8 @@ import counter from './reducer';
 
 const reducers = combineReducers({ counter });
 
-const worker = new Worker('./worker.js');
+const worker = new Worker('./worker.js', { type: 'module' });
+console.log(worker);
 
 const workerMiddleware = createWorkerMiddleware(worker);
 

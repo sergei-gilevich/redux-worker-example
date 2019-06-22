@@ -40,7 +40,7 @@ const createWorkerMiddleware = (worker) => {
       return (action) => {
         console.log('======>1')
         if (action.meta && action.meta.WebWorker) {
-          console.log('=====>2', worker.postMessage);
+          console.log('=====>2', action);
           worker.postMessage(action);
         }
         // always pass the action along to the next middleware
