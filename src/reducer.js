@@ -7,7 +7,7 @@ export default function reducer(state = initialState(), action) {
     case INCREASE_COUNTER: {
       return {...state, counter: state.counter + 1};
     }
-    case 'ADD_1': {
+    case 'WORKER_ACTION': {
       console.log(action);
       return { ...state }
     }
